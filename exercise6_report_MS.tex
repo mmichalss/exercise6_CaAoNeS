@@ -1,0 +1,263 @@
+%%%%%%% P R E A M B U Ł A %%%%%%%
+% W razie potrzeby marginesy dokumentu możesz zmienić w linii 31, odblokowując ją poprzez usunięcie znaku % na jej początku.
+% Właściwa edycja treści rozpoczyna się w linii 48.
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[MeX]{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage[polish, english]{babel}
+\usepackage{cite}
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx}
+\usepackage[tight,footnotesize]{subfigure}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[small]{caption}
+\usepackage{makecell} % Used to break text in a single cell of a table.
+\usepackage{float}
+\restylefloat{table}
+\usepackage{tabto}
+\usepackage[shortlabels]{enumitem}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=red,urlcolor=blue,pagebackref=true]{hyperref}
+\usepackage[all]{nowidow}
+\usepackage{upquote} % Rozwiązuje problem zakręconych cudzysłowów w otoczeniu verbatim, gdzie wystarczy użyć '. Natomiast w {\tt } trzeba zamiast ' pisać \textquotesingle, czyli np. {\tt \textquotesingle Ala ma kota.\textquotesingle}. Inaczej będą zakręcone, nie proste, co bruździ przy przeklejaniu kodu z pdf do edytora kodu.
+\frenchspacing
+
+\usepackage[top=25mm,left=25mm,bottom=25mm,right=25mm]{geometry}
+
+% Potrzebne do tworzenia schematów blokowych.
+% https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)%E2%80%94Creating_Flowcharts
+\usepackage{tikz} 
+\usetikzlibrary{shapes.geometric, arrows} 
+\tikzstyle{startstop} = [ellipse, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=black!0]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=yellow!0]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!0]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!0]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\usepackage{multirow}
+\usepackage{listings}
+
+\usepackage{indentfirst} % Get proper Polish indentation
+\usepackage{gensymb} % degree symbol
+
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalfont\normalsize\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\normalsize\itshape}
+{\thesubsection}{1em}{}
+
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+
+%%%%%%%%% CUSTOM TITLE %%%%%%%%%%%%
+
+% Define custom fields
+\newcommand{\name}{}
+\newcommand{\Sindex}{}
+\newcommand{\group}{}
+\newcommand{\class}{}
+\newcommand{\dateplace}{}
+\newcommand{\course}{}
+\newcommand{\exTitle}{}
+
+\renewcommand{\maketitle}{
+	\begin{table}[]
+		\centering
+		\begin{tabular*}{\textwidth}{@{} l @{\extracolsep{\fill}} r @{}}
+			\name & Wrocław, \dateplace \\
+			index: \Sindex & \\
+			group no. \group & \\
+			Thursday, \class & \\
+		\end{tabular*}
+	\end{table}
+	\begin{center}
+		\course \\
+		\vspace{.3cm}
+		{\Large \bfseries \exTitle}
+	\end{center}
+	\vspace{-.3cm}
+}
+
+%%%%%%%%% D O K U M E N T %%%%%%%%%
+
+\begin{document}
+	%%%%%%%%%%% PROVIDE TITLE DATA %%%%%%%%%%%%%%
+	\renewcommand{\name}{Michał Skrzypczyński}
+	\renewcommand{\Sindex}{276157}
+	\renewcommand{\group}{6}
+	\renewcommand{\class}{14:15}
+	\renewcommand{\dateplace}{10.04.2025}
+	\renewcommand{\course}{Conversion and Analysis of Non-electrical Signals Laboratory}
+	\renewcommand{\exTitle}{Exercise no. 6: Infusion pump flow rate measurements}
+	
+	%%%%%%%%%%%%%%% GENERATE TITLE %%%%%%%%%%%%%%
+	\maketitle
+	%%%%%%%%%%% MEASUREMENT TECHNIQUE %%%%%%%%%%%%%%
+	\section{Aim of the exercise}
+	Following exercise was conducted in order to validate the accuracy of the infusion pump bolus in matter of dosage volume. Quite simple experiment was done, an infusion pump powered by  syringe filled with water dripped droplets of water to beaker placed on microbalance. Quite peculiar methodology, is it not? Why to weigh the fluid when the interest is in the volume. The main reason for such round way is the accuracy of the measurement. Volumetric measurements are not as precise as ones of mass. Simple math is sufficient to move from mass to volume domain --- the density equation. If one takes into account the aberrations of density in regard to temperature, he can obtain pretty accurate volume results. 
+	
+	%%%%%%%%%%%%%% MEASUREMENT TECHNIQUE %%%%%%%%%%%%%%
+	\section{Measurement technique}
+	Moving into details of the experiment procedure itself. As discussed in the introduction, Braun Perfusor\textsuperscript{\tiny\textregistered} compact syringe pump took the water from 50 ml syringe to later let the droplets flow through small cannula to glass beaker placed on the microbalance CASMWP-150 which was connected to the computer with software (called WAGA) capable of handling the microbalance digital output.
+	
+	I and my colleague set the infusion pump to deliver 10 ml of fluid with flow rate equal to 80 ml/h. The mass captured by the microbalance was being saved in real time by WAGA program with firstly 1 and later 3 seconds of sampling rate.
+	
+	Next measurement was of the so called BOL function of the infusion pump. This is used to manually let the pump put through high flow rate when the buttons are held. The device shows the volume output by it in real time. Until 10 ml was shown, the BOL function button had been held. As in previous measurement, this was conducted with 1 and 3 seconds of sampling rate of the WAGA program.
+	
+	%%%%%%%%%%%%%%%%%%% RESULTS %%%%%%%%%%%%%%%%%%%%%%%
+	\section{Results}
+	This section should include the processing and analysis of the collected measurement data, following the specified steps of the experiment and considering error evaluation and measurement uncertainty.
+	
+	%%%%%%%%%%%%%%% DATA PRESENTATION %%%%%%%%%%%%%%%%%
+	\subsection{Data presentation}
+	Each measured or calculated physical quantity presented in the work is given together with an assessment of the measurement uncertainty. It should be remembered that:
+	
+	\subsubsection{Values and uncertainty}
+	Each measured or calculated physical quantity presented in the work is given together with an assessment of the measurement uncertainty. 
+	It should be remembered that:
+	\begin{itemize}
+		\item the measured value and its absolute error are given in the same units,
+		\item depending on the number of measurements performed, the error is rounded to one or two significant digits,
+		\item the number of decimal places of the presented measured value is the same as for its error,
+		\item use a dot to separate the integer part from the decimal part, as in 123.456,
+		\item when you have negative values use minus ($-$), not hyphen (-) or an dash (--), and an em dash (---). 
+		To do so simply write \$\,-\$ {\it Note: For ranges --- like 12--13V use en dash (-\,-) and an em dash (-\,-\,-) for interruptions or emphasis.}
+	\end{itemize}
+	
+	\subsubsection{Form of presentation}
+	The results are placed in tables (Table~\ref{tab:someTab}), which should include the names of the presented values and the units in which they are measured. 
+	Another way, which better illustrates the studied phenomenon, is a figure (Figure~\ref{fig:someFig}). 
+	Some notes on presenting data in tables and figure.
+	\begin{itemize}
+		\item Table should be located at the bottom or top of the page, if the page contains text aside of tables or figures. 
+		\item Give each table or figure a short, understandable description --- caption. 
+		All tables and figures has to be referenced in text --- this is obtained by \textbackslash ref\{{\it label}\}, where {\it label is the same label you've provided for a table or figure}. 
+		For tables the caption has to be located above the table and for figures below.
+		\item Symbols and physical quantities used for table or figure captions should be the same as in the text description.
+		\item In tables, names, symbols, physical quantities and units are placed in column or row headers. 
+		Do NOT provide units of measurement in table cells next to each numerical value. 
+		\item Describe the axes of figures with the name, symbol and unit of the appropriate physical quantity. 
+		The axes must be scaled in such a way that the values being tested are clearly presented. 
+		Do NOT connect individual experimental points with a broken line, but only mark the measurement points with the error. 
+		Then mark the trend line showing the general trend of the data, e.g. increase or decrease in value. 
+		Place the determined relationship and the $R^2$ coefficient of determination next to the figure.
+	\end{itemize}
+	
+	%%%%%%%%%%% FORMULAS AND CALCULATIONS %%%%%%%%%%%%%%%%%
+	\section{Formulas and sample calculations}
+	
+	
+	\noindent
+	However only in the second option the equation will be numbered.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			$T_{\text{cham}}$ [$^\circ$C] & $R_{\text{PTC}}$ [k$\Omega$] & $\Delta R_{\text{PTC}}$ [k$\Omega$] & $\delta R_{\text{PTC}}$ [\%] & $u_B (R_{\text{PTC}})$ [k$\Omega$] \\
+			\hline \hline
+			10.0  & $-$1.763 & 0.006 & 0.32 & 0.003 \\ \hline
+			15.0  & $-$1.835 & 0.006 & 0.31 & 0.003 \\ \hline
+			20.0  & $-$1.908 & 0.006 & 0.31 & 0.003 \\ \hline
+			25.0  & $-$1.986 & 0.006 & 0.30 & 0.004 \\ \hline
+			30.0  & $-$2.067 & 0.006 & 0.29 & 0.004 \\
+			\hline
+		\end{tabular}
+		\caption{Measured resistance values at different temperatures}
+		\label{tab:someTab}
+	\end{table}
+	
+	Calculations of volume based on mass value were done with density equation:
+	\begin{equation}\label{d_eq}
+		\rho = \frac{m}{V}
+	\end{equation}
+	\small
+	where: \\
+	\indent\indent $\rho$ — density of body,\\
+	\indent\indent $m$ — mass of body,\\
+	\indent\indent $V$ — volume of body
+	\normalsize
+	\newline
+	
+	After simple algebra applied:
+	\begin{equation}\label{V_eq}
+		V = \frac{m}{\rho}
+	\end{equation}
+	
+	Above equation for first mass entry and density of water in 25$\degree C$ (the water temperature was 23.5 $\degree C$, however in table provided by the teacher, 25$\degree C$ was the closest value):
+	\begin{equation}\label{V_eg_eq}
+		V_{calc} = \frac{9.7450~g}{997.05~\frac{g}{dm^3}} = 0.009773832807~dm^3 \approx 9.77~ml
+	\end{equation}
+	
+	Uncertainty of upper solution:
+	\begin{equation}\label{uc_V_eq}
+		u_c(V) = \sqrt{\left[\frac{\partial V}{\partial m} u(m)\right]^2 + \left[\frac{\partial V}{\partial \rho} u(\rho)\right]^2} = \sqrt{\left[\frac{1}{\rho} u(m)\right]^2 + \left[-\frac{m}{\rho^2} u(\rho)\right]^2}
+	\end{equation}
+	
+	Difference between final and initial syringe volume:
+	\begin{equation}\label{diff_Vs_eq}
+		\Delta V_S = V_{S_f} - V_{S_i}
+	\end{equation}
+	\small
+	where: \\
+	\indent\indent $V_{S_f}$ — final volume of the syringe,\\
+	\indent\indent $V_{S_i}$ — initial volume of the syringe
+	\normalsize
+	\newline
+	
+	Example of application of upper formula:
+	\begin{equation}\label{diff_Vs_eg_eq}
+		\Delta V_S = 39~ml - 29~ml = 10~ml	
+	\end{equation}
+	
+	When it comes to average mass flow rate, following equation was used:
+	\begin{equation}\label{qm,avg_eq}
+		q_{m,avg} = \frac{m}{t}
+	\end{equation}
+	\small{
+	where: \\
+	\indent\indent $m$ — mass of fluid delivered by the pump,\\
+	\indent\indent $t$ —time during which the mass was delivered
+	}
+	\normalsize
+	\newline
+	
+	Exemplary calculations of average mass flow rate:
+	\begin{equation}\label{qm,avg_eg_eq}
+		q_{m,avg} = \frac{9.7450~g}{440~s} = 0.022147727~\frac{g}{s} \approx 79.73 ~\frac{g}{h}
+	\end{equation}
+	
+	Instantaneous mass flow rate was obtained in following way:
+	\begin{equation}\label{qm,inst_eq}
+		q_{m,inst} = \frac{dm}{dt}
+	\end{equation} 
+	
+	Example of formula entry and sample calculations:
+	\begin{equation} \label{eq:first}
+		\Delta R_{PT100} = 0.2\%\text{rdg} + 5\text{dgt}
+	\end{equation}
+	\begin{equation} \label{eq:second}
+		\Delta R_{PT100} = 0.002 \cdot 104.21 + 5 \cdot 0.01 = 0.21~[\Omega]
+	\end{equation}
+	
+	%%%%%%%%%%% ANALYSIS AND CONCLUSIONS %%%%%%%%%%%%%%%%%%%
+	\section{Analysis and Conclusions}
+	In this part, we repeat what the goal of our experiment was, what our expectations were in the physical dependencies we tested, and whether the measured measurement values confirm our predictions. 
+	Using clear argumentation, we should clearly indicate a fact confirming a given thesis (e.g. agreement of the theory with the experiment within the margin of error). 
+	This should be a quantitative argument (e.g. 20\%), not qualitative (i.e. we do not write sentences such as ``it is easy to notice that \dots''). 
+	If the theory deviates from our experimental result, we should present what the trend of the physical dependency we are testing should be. 
+	It is also worth providing possible reasons for the discrepancy. 
+	We do not change the measurement data in order to obtain better agreement between the experimental result and the predicted theory. 
+	Using qualitative arguments is a common mistake in descriptions. 
+	When comparing the experimental result with the theory, we do not use phrases such as ``it is much bigger'' or ``the measurement was too short''. 
+	The order of magnitude of the variables under discussion should be provided.
+\end{document}
